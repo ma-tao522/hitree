@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.matao.hitree.module.mapper.TreeMapper">
+
+    <insert id="create" parameterType="com.matao.hitree.module.entity.Tree">
+        INSERT INTO tree(covert_images, tree_code, price, variety, description, saleStatus, address, location_point,
+                         create_time, update_time, is_deleted)
+        VALUES (#{covertImages}, #{treeCode}, #{price}, #{variety}, #{description}, #{saleStatus},
+                #{address}, #{locationPoint}, #{createTime}, #{updateTime}, #{isDeleted});
+    </insert>
+
+    <update id="update" parameterType="com.matao.hitree.module.entity.Tree">
+        UPDATE tree
+        SET covert_images  = #{covertImages},
+            tree_code      = #{treeCode},
+            price          = #{price},
+            variety        = #{variety},
+            description    = #{description},
+            saleStatus     = #{saleStatus},
+            address        = #{address},
+            covert_images  = #{covertImages},
+            location_point = #{locationPoint},
+            update_time    = #{updateTime}
+        WHERE id = #{id}
+    </update>
+</mapper>
